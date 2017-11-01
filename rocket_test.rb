@@ -1,5 +1,6 @@
 require "minitest/autorun"
 require_relative "rocket"
+require 'pry'
 
 class RocketTest < Minitest::Test
   # Write your tests here!
@@ -44,6 +45,19 @@ class RocketTest < Minitest::Test
     assert_equal(expected, result)
   end
 
+  def test_status_is_flying
+    @rocket.lift_off
+    result = @rocket.status
+    expected = "Rocket #{@rocket.name} is flying through the sky!"
 
+    assert_equal(expected, result)
+
+  end
+
+  def test_status_is_landed
+    @rocket.land
+    result = @rocket.status
+    expected = "Rocket #{@rocket.name} is ready for lift off!"
+  end
 
 end
